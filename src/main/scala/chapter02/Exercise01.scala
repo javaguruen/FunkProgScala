@@ -1,5 +1,7 @@
 package chapter02
 
+import scala.annotation.tailrec
+
 object Exercise01 {
 
   def main(args : Array[String]) {
@@ -12,9 +14,10 @@ object Exercise01 {
 
   def fibonacci(n: Int) : Int = {
 
+    @tailrec
     def fibo(i : Int, sec : Int, prev : Int) : Int = {
       if( i ==  0){
-        prev + sec
+        prev
       }
       else{
         fibo(i-1, prev, prev+sec)
