@@ -107,4 +107,61 @@ object List {
     }
   }
 
+  def append[A](elem : A, list : List[A] ) : List[A] = {
+    val l: List[A] = foldLeft(list, List(elem))((a, b) => Cons(b, a))
+    reverse(l)
+  }
+
+  def concat[A]( bigList : List[ List[A]]) : List[A] ={
+
+    @tailrec
+    def con(listA : List[A], listB : List[A]) : List[A] = {
+      listA match {
+        case Cons(x, xs) => con( xs, append(x, listB))
+        case _ => reverse(listB)
+      }
+    }
+
+    reverse(foldLeft(bigList, Nil: List[A])( con ))
+  }
+
+  def mapI( list : List[Int] )( f:Int => Int) : List[Int] = {
+    list match{
+      case Cons(x, xs) => Cons( f(x), mapI(xs)(f) )
+      case _ => Nil
+    }
+  }
+
+  def mapD( list : List[Double] )( f: Double => String) : List[String]= {
+
+    def m(l : List[Double], r : List[String]) : List[String] = {
+      l match{
+        case Cons(x, xs) => m(xs, Cons( f(x), r ))
+        case _ => r
+      }
+    }
+    reverse( m(list, Nil : List[String]) )
+  }
+
+  def map[A,B](list: List[A])(f: A => B): List[B] = {
+
+    def m(l : List[A], r : List[B]) : List[B] = {
+      l match{
+        case Cons(x, xs) => m(xs, Cons( f(x), r ))
+        case _ => r
+      }
+    }
+    reverse( m(list, Nil : List[B]) )
+  }
+
+  def filter[A](list : List[A])( func: A=>Boolean)  : List[A] = {
+
+    def filt(l : List[A], r : List[A]) : List[A] = {
+      l match{
+        case Cons(x, xs) => if( func(x) ) filt(xs, Cons( x, r )) else filt(xs, r)
+        case _ => r
+      }
+    }
+    reverse( filt(list, Nil : List[A]))
+  }
 }
