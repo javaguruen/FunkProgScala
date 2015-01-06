@@ -15,13 +15,9 @@ object Exercise01 {
   def fibonacci(n: Int) : Int = {
 
     @tailrec
-    def fibo(i : Int, sec : Int, prev : Int) : Int = {
-      if( i ==  0){
-        prev
-      }
-      else{
-        fibo(i-1, prev, prev+sec)
-      }
+    def fibo(i : Int, sec : Int, prev : Int) : Int = i match {
+      case 0 => prev
+      case _ => fibo(i-1, prev, prev+sec)
     }
 
     n match {
