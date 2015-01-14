@@ -39,10 +39,10 @@ object List {
     }
   }
 
-  def dropWhile[A](l: List[A])(f: A => Boolean): List[A] = {
-    l match{
+  def dropWhile[A](xs: List[A])(f: A => Boolean): List[A] = {
+    xs match{
       case Nil => Nil
-      case Cons(x, xs) => if( f(x) ) dropWhile( xs)( f) else l
+      case Cons(x, xs) => if( f(x) ) dropWhile( xs)(f) else xs
     }
   }
 
@@ -56,16 +56,18 @@ object List {
       case Cons(h,t) => Cons(h, append(t, a2))
     }
 
-  def init[A](l: List[A]): List[A] = {
+  def init[A](xs: List[A]): List[A] = {
+
+
 
     def f( first : List[A], l : List[A] ) : List[A] ={
       l match {
         case Cons(_, Nil) => first
-        case Cons( x, xs ) => f( append(first, Cons(x,Nil) ), xs )
+        case Cons( a, as ) => f( append(first, Cons(a,Nil) ), as )
       }
     }
 
-    f( Nil, l)
+    f( Nil, xs)
   }
 
   def foldRight[A,B](l: List[A], z: B)(f: (A, B) => B): B =
@@ -74,8 +76,8 @@ object List {
       case Cons(x, xs) => f(x, foldRight(xs, z)(f))
     }
 
-  def length[A](l: List[A] ) : Int = {
-    l match {
+  def length[A](xs: List[A] ) : Int = {
+    xs match {
       case Nil => 0
       case Cons(x, xs) => 1 + length(xs)
     }
@@ -94,6 +96,9 @@ object List {
   def productFL(ds: List[Double]): Double = foldLeft(ds, 1.0)(_*_)
 
   def lengthFL[A](l: List[A] ) : Int = foldLeft(l, 0)((b,_)=> b+1)
+  
+  def lengthFR[A](xs: List[A] ) : Int =
+    foldRight(xs, 0)( _ + 1)
 
   def reverse[A](l: List[A] ) : List[A] = {
     foldLeft(l, Nil:List[A])( (a,b) => setHead( b, a))
