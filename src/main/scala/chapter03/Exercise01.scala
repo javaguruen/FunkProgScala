@@ -2,7 +2,7 @@ package chapter03
 
 object Exercise01 {
 
-  def main(args: Array[String]) {
+  def execute() : Int = {
     val x = chapter03.List(1,2,3,4,5) match {
       case Cons(x, Cons(2, Cons(4, _))) => x
       case Nil => 42
@@ -10,6 +10,6 @@ object Exercise01 {
       case Cons(h, t) => h + List.sum(t)
       case _ => 101
     }
-    println(s"x=$x")
+    x
   }
 }
