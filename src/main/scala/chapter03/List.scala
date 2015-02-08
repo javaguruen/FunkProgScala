@@ -82,6 +82,7 @@ object List {
       l match {
         case Cons(_, Nil) => first
         case Cons(a, as) => f(append(first, Cons(a, Nil)), as)
+        case Nil => Nil
       }
     }
 
