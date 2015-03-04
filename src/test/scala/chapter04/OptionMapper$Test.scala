@@ -5,19 +5,19 @@ import org.scalatest.Matchers._
 
 class OptionMapper$Test extends FunSuite {
   test("map2(None, None)(f) === None"){
-    OptionMapper.map2(scala.None, scala.None)(multiply) shouldBe empty
+    Option.map2(scala.None, scala.None)(multiply) shouldBe empty
   }
 
   test("map2(Some(10), None)(f) === None"){
-    OptionMapper.map2(scala.Some(10), scala.None)(multiply) shouldBe empty
+    Option.map2(scala.Some(10), scala.None)(multiply) shouldBe empty
   }
 
   test("map2(None, Some(10))(f) === None"){
-    OptionMapper.map2(scala.None, scala.Some(10))(multiply) shouldBe empty
+    Option.map2(scala.None, scala.Some(10))(multiply) shouldBe empty
   }
 
   test("map2(Some(10), Some(5)(f) === 50"){
-    val multiplied: scala.Option[Int] = OptionMapper.map2(scala.Some(10), scala.Some(5))(multiply)
+    val multiplied: scala.Option[Int] = Option.map2(scala.Some(10), scala.Some(5))(multiply)
     multiplied should not be empty
     multiplied.get shouldBe 50
   }
