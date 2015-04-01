@@ -1,7 +1,10 @@
 package chapter02
 
+import org.junit.runner.RunWith
 import org.scalatest.FunSuite
+import org.scalatest.junit.JUnitRunner
 
+@RunWith(classOf[JUnitRunner])
 class Exercise01Test  extends FunSuite {
 
 

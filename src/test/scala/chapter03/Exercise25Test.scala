@@ -1,8 +1,7 @@
 package chapter03
 
-import no.hamre.UnitSpec
-import org.scalatest.junit.JUnitSuite
 import org.junit.Test
+import org.scalatest.junit.JUnitSuite
 
 class Exercise25Test extends JUnitSuite {
 

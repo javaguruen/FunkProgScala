@@ -1,9 +1,12 @@
 package chapter04
 
+import org.junit.runner.RunWith
 import org.scalactic.TolerantNumerics
 import org.scalatest.FunSuite
 import org.scalatest.Matchers._
+import org.scalatest.junit.JUnitRunner
 
+@RunWith(classOf[JUnitRunner])
 class VarianceTest extends FunSuite {
   implicit val doubleEquality = TolerantNumerics.tolerantDoubleEquality(0.01)
 

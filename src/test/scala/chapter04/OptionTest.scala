@@ -1,7 +1,10 @@
 package chapter04
 
+import org.junit.runner.RunWith
 import org.scalatest.FunSuite
+import org.scalatest.junit.JUnitRunner
 
+@RunWith(classOf[JUnitRunner])
 class OptionTest extends FunSuite {
 
   test("map(None) === None") {
