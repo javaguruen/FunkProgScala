@@ -1,11 +1,8 @@
 package chapter04
 
-import org.junit.runner.RunWith
 import org.scalatest.FunSuite
-import org.scalatest.junit.JUnitRunner
 
 
-@RunWith(classOf[JUnitRunner])
 class SequenceTest extends FunSuite {
 
   test("sequence(Nil) === Some(Nil)") {

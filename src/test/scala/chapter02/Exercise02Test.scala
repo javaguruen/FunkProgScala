@@ -1,12 +1,8 @@
 package chapter02
 
-import org.junit.runner.RunWith
 import org.scalatest.FunSuite
-import org.scalatest.junit.JUnitRunner
 
-@RunWith(classOf[JUnitRunner])
 class Exercise02Test  extends FunSuite {
-
 
   test("er sortert stigende") {
     assert( Exercise02.isSorted( Array(12,9,6), (a:Int, b:Int) => a>b ) )

@@ -1,10 +1,7 @@
 package chapter03
 
-import org.junit.runner.RunWith
 import org.scalatest.FunSuite
-import org.scalatest.junit.JUnitRunner
 
-@RunWith(classOf[JUnitRunner])
 class Exercise17Test extends FunSuite{
 
   test("Map double til String i listen"){
