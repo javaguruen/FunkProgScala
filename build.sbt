@@ -2,7 +2,7 @@ name := "FunctionalProgrammingInScalaBook"
 
 version := "1.0"
 
-scalaVersion := "2.11.4"
+scalaVersion := "2.12.0"
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.1" % "test",
